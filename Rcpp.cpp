@@ -39,3 +39,15 @@ NumericVector run_min(NumericVector x, int n){
     std::fill(res.begin(), res.end()-sz+n-1, NA_REAL);
     return res;
 }
+
+// [[Rcpp::export]]
+NumericVector run_max(NumericVector x, int n){
+    int sz = x.size();
+    NumericVector res(sz);
+    for(int i = 0; i < (sz-n+1); i++){
+        res[i+n-1] = *std::max_element(x.begin() + i, x.end() - sz + n + i);
+    }
+    // pad the first n-1 elements with NA
+    std::fill(res.begin(), res.end()-sz+n-1, NA_REAL);
+    return res;
+}
