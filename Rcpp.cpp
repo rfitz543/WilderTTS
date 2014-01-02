@@ -77,3 +77,21 @@ NumericVector tr(NumericMatrix x)
     }
     return vec;
 }
+
+// [[Rcpp::export]]
+NumericVector atr(NumericMatrix x, int n) 
+{
+    int sz = x.size();
+    NumericVector vec(sz);
+    NumericVector trange(sz);
+    
+    trange = tr(x);
+    
+    vec[n-1] = std::accumulate(trange.begin(); trange.end()-sz+n, 0)/(double)n;
+    
+    for (int i = n; i < sz; i++) 
+    {
+    vec[i] = (vec[i-1]*(n-1)+trange[i])/n;
+    }
+    return vec;
+}
