@@ -87,7 +87,7 @@ NumericVector atr(NumericMatrix x, int n)
     
     trange = tr(x);
     
-    vec[n-1] = std::accumulate(trange.begin(); trange.end()-sz+n; 0)/(double)n;
+    vec[n-1] = std::accumulate(trange.begin(), trange.end()-sz+n, 0.0)/(double)n;
     
     for (int i = n; i < sz; i++) 
     {
