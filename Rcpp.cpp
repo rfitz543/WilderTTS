@@ -71,5 +71,5 @@ NumericVector true_range(NumericMatrix x, int n)
     vec[i] = std::max(x(i,hi)-x(i,lo),std::max(std::abs(x(i,hi)-x(i-1,cl)),
     std::abs(x(i,lo)-x(i-1,cl))));
   }
-  return(vec);
+  return vec;
 }
