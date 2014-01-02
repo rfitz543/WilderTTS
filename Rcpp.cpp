@@ -93,5 +93,7 @@ NumericVector atr(NumericMatrix x, int n)
     {
     vec[i] = (vec[i-1]*(n-1)+trange[i])/n;
     }
+    // pad the first n-1 elements with NA
+    std::fill(vec.begin(), vec.end()-sz+n-1, NA_REAL);
     return vec;
 }
