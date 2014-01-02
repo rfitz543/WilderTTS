@@ -22,7 +22,8 @@ NumericVector run_sum(NumericVector x, int n)
 }
 
 // [[Rcpp::export]]
-NumericVector run_mean(NumericVector x, int n) {
+NumericVector run_mean(NumericVector x, int n) 
+{
     return run_sum(x, n) / (double)n;
 }
 
@@ -56,20 +57,23 @@ NumericVector run_max(NumericVector x, int n)
     return res;
 }
 
-// [[Rcpp:export]]
-NumericVector true_range(NumericMatrix x)
+// [[Rcpp::export]]
+NumericVector true_range(NumericMatrix x) 
 {
-  int sz = x.nrow();
+  int nrow = x.nrow();
   int hi = 1;
   int lo = 2;
   int cl = 3;
+  NumericVector vec(nrow);
   
-  NumericVector vec(sz);
-  vec[0] = x(0,hi)-x(0,lo);
-  for(int i=1; i<sz; i++)
+  vec[0] = x(0, hi)-x(0, lo);
+  
+  for (int i = 1; i < nrow; i++) 
   {
-    vec[i] = std::max(x(i,hi)-x(i,lo),std::max(std::abs(x(i,hi)-x(i-1,cl)),
-    std::abs(x(i,lo)-x(i-1,cl))));
+    double tmp1 = x(i, hi) -x(i, lo);
+    double tmp2 = std::abs(x(i, hi) - x(i-1, cl));
+    double tmp3 = std::abs(x(i, lo) - x(i-1, cl));
+    vec[i] = std::max(tmp1, std::max(tmp2, tmp3));
   }
   return vec;
 }
