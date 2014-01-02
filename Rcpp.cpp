@@ -58,7 +58,7 @@ NumericVector run_max(NumericVector x, int n)
 }
 
 // [[Rcpp::export]]
-NumericVector tr(NumericMatrix x) 
+NumericVector range_true(NumericMatrix x) 
 {
     int nrow = x.nrow();
     int hi = 1;
@@ -85,7 +85,7 @@ NumericVector atr(NumericMatrix x, int n)
     NumericVector vec(sz);
     NumericVector trange(sz);
     
-    trange = tr(x);
+    trange = range_true(x);
     
     vec[n-1] = std::accumulate(trange.begin(), trange.end()-sz+n, 0.0)/(double)n;
     
