@@ -57,7 +57,7 @@ NumericVector run_max(NumericVector x, int n)
 }
 
 // [[Rcpp:export]]
-NumericVector true_range(NumericMatrix x, int n)
+NumericVector true_range(NumericMatrix x)
 {
   int sz = x.nrow();
   int hi = 1;
