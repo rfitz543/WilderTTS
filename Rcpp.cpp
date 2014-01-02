@@ -58,22 +58,22 @@ NumericVector run_max(NumericVector x, int n)
 }
 
 // [[Rcpp::export]]
-NumericVector true_range(NumericMatrix x) 
+NumericVector tr(NumericMatrix x) 
 {
-  int nrow = x.nrow();
-  int hi = 1;
-  int lo = 2;
-  int cl = 3;
-  NumericVector vec(nrow);
-  
-  vec[0] = x(0, hi)-x(0, lo);
-  
-  for (int i = 1; i < nrow; i++) 
-  {
+    int nrow = x.nrow();
+    int hi = 1;
+    int lo = 2;
+    int cl = 3;
+    NumericVector vec(nrow);
+    
+    vec[0] = x(0, hi)-x(0, lo);
+    
+    for (int i = 1; i < nrow; i++) 
+    {
     double tmp1 = x(i, hi) -x(i, lo);
     double tmp2 = std::abs(x(i, hi) - x(i-1, cl));
     double tmp3 = std::abs(x(i, lo) - x(i-1, cl));
     vec[i] = std::max(tmp1, std::max(tmp2, tmp3));
-  }
-  return vec;
+    }
+    return vec;
 }
