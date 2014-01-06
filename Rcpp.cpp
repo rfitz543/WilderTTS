@@ -98,6 +98,7 @@ NumericVector atr(NumericMatrix x, int n)
     return vec;
 }
 
+// [[Rcpp::export]]
 NumericVector swing_index(NumericMatrix x, double l)
 {
     int sz = x.nrow();
