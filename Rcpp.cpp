@@ -97,3 +97,21 @@ NumericVector atr(NumericMatrix x, int n)
     std::fill(vec.begin(), vec.end()-sz+n-1, NA_REAL);
     return vec;
 }
+
+NumericVector swing_index(NumericMatrix x, double l)
+{
+    int sz = x.nrow();
+    int op = 0;
+    int hi = 1;
+    int lo = 2;
+    int cl = 3;
+    NumericVector vec(sz);
+    
+    vec[0] = NA_REAL;
+    
+    for(int i=1; i<sz; i++)
+    {
+        double h2l2
+    }
+    
+}
