@@ -121,15 +121,15 @@ NumericVector swing_index(NumericMatrix x, double l)
         double tmp1 = x(i, hi) - x(i-1, cl);
         double tmp2 = x(i, lo) - x(i-1, cl);
         double tmp3 = x(i, hi) - x(i, lo);
-        if(tmp1 >= tmp2 & tmp1 >= tmp3)
+        if(tmp1 >= tmp2 && tmp1 >= tmp3)
         {
             r[i] = ((x(i,cl)-x(i-1,cl)+.5*(x(i,cl)-x(i,op))+.25*(x(i-1,cl)-x(i-1,op)));
         }
-        else if(tmp2 > tmp1 & tmp2 > tmp3)
+        else if(tmp2 > tmp1 && tmp2 > tmp3)
         {
             r[i] = ((x(i,lo)-x(i-1,cl)+.5*(x(i,hi)-x(i-1,cl))+.25*(x(i-1,cl)-x(i-1,op)));
         }
-        else(tmp3 > tmp1 & tmp3 > tmp2)
+        else(tmp3 > tmp1 && tmp3 > tmp2)
         {
             r[i] = ((x(i,hi)-x(i,lo)+.25*(x(i-1,cl)-x(i-1,op)));
         }
