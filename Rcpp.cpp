@@ -129,7 +129,7 @@ NumericVector swing_index(NumericMatrix x, double l)
         {
             r[i] = (x(i,lo)-x(i-1,cl)+.5*(x(i,hi)-x(i-1,cl))+.25*(x(i-1,cl)-x(i-1,op));
         }
-        else(tmp3 > tmp1 && tmp3 > tmp2)
+        else if(tmp3 > tmp1 && tmp3 > tmp2)
         {
             r[i] = (x(i,hi)-x(i,lo)+.25*(x(i-1,cl)-x(i-1,op));
         }
