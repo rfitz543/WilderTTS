@@ -139,3 +139,20 @@ NumericVector swing_index(NumericMatrix x, double l)
     }
     return vec;
 }
+
+// [[Rcpp::export]]
+NumericVector HtCy(NumericMatrix x)
+{
+    int sz = x.nrow();
+    int hi = 1;
+    int cl = 3;
+    NumericVector vec(sz);
+    
+    vec[0] = NA_REAL;
+    
+    for(int i=1, i<sz, i++)
+    {
+        vec[i] = x(i,hi)-x(i-1,cl);
+    }
+    return vec;
+}
