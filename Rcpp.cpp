@@ -150,7 +150,7 @@ NumericVector HtCy(NumericMatrix x)
     
     vec[0] = NA_REAL;
     
-    for(int i=1, i<sz, i++)
+    for(int i=1; i<sz; i++)
     {
         vec[i] = x(i,hi)-x(i-1,cl);
     }
