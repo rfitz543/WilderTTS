@@ -135,7 +135,7 @@ NumericVector swing_index(NumericMatrix x, double l)
         }
         k[i] = std::max(std::abs(x(i,hi)-x(i-1,cl)), std::abs(x(i,lo)-x(i-1,cl)));
         num[i] = (x(i,cl)-x(i-1,cl)+.5*(x(i,cl)-x(i,op))+.25*(x(i-1,cl)-x(i-1,op)));
-        vec[i] = 50*(num[i]/r[i])*(k[i]/l);
+        vec[i] = 50*(num[i]/(double)r[i])*(k[i]/l);
     }
     return vec;
 }
