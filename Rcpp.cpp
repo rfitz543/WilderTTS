@@ -207,3 +207,36 @@ NumericVector CyOy(NumericMatrix x)
     }
     return vec;
 }
+
+// [[Rcpp::export]]
+NumericVector CtCy(NumericMatrix x)
+{
+    int sz = x.nrow();
+    int cl = 3;
+    NumericVector vec(sz);
+    
+    vec[0] = NA_REAL;
+    
+    for(int i=1; i<sz; i++)
+    {
+        vec[i] = x(i,cl)-x(i-1,cl);
+    }
+    return vec;
+}
+
+// [[Rcpp::export]]
+NumericVector CtOt(NumericMatrix x)
+{
+    int sz = x.nrow();
+    int op = 0;
+    int cl = 3;
+    NumericVector vec(sz);
+    
+    vec[0] = NA_REAL;
+    
+    for(int i=1; i<sz; i++)
+    {
+        vec[i] = x(i,cl)-x(i,op);
+    }
+    return vec;
+}
