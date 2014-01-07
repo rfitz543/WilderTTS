@@ -156,3 +156,54 @@ NumericVector HtCy(NumericMatrix x)
     }
     return vec;
 }
+
+// [[Rcpp::export]]
+NumericVector LtCy(NumericMatrix x)
+{
+    int sz = x.nrow();
+    int lo = 2;
+    int cl = 3;
+    NumericVector vec(sz);
+    
+    vec[0] = NA_REAL;
+    
+    for(int i=1; i<sz; i++)
+    {
+        vec[i] = x(i,lo)-x(i-1,cl);
+    }
+    return vec;
+}
+
+// [[Rcpp::export]]
+NumericVector HtLt(NumericMatrix x)
+{
+    int sz = x.nrow();
+    int hi = 1;
+    int lo = 2;
+    NumericVector vec(sz);
+    
+    vec[0] = NA_REAL;
+    
+    for(int i=1; i<sz; i++)
+    {
+        vec[i] = x(i,hi)-x(i,lo);
+    }
+    return vec;
+}
+
+// [[Rcpp::export]]
+NumericVector CyOy(NumericMatrix x)
+{
+    int sz = x.nrow();
+    int op = 0;
+    int cl = 3;
+    NumericVector vec(sz);
+    
+    vec[0] = NA_REAL;
+    
+    for(int i=1; i<sz; i++)
+    {
+        vec[i] = x(i-1,cl)-x(i-1,op);
+    }
+    return vec;
+}
