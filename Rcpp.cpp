@@ -205,7 +205,7 @@ NumericVector get_k(NumericMatrix x)
     int sz = x.nrow();
     NumericVector tmp1 = HtCy(x);
     NumericVector tmp2 = LtCy(x);
-    NumericVector vec = vec(sz);
+    NumericVector vec(sz);
     
     vec[0] = NA_REAL;
     
