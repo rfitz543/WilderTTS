@@ -202,7 +202,18 @@ NumericVector CtOt(NumericMatrix x)
 // [[Rcpp::export]]
 NumericVector get_k(NumericMatrix x)
 {
-    return std::max(std::abs(HtCy(x), std::abs(LtCy)));
+    int sz = x.nrow();
+    NumericVector tmp1 = HtCy(x);
+    NumericVector tmp2 = LtCy(x);
+    NumericVector vec = vec(sz);
+    
+    vec[0] = NA_REAL;
+    
+    for(int i=1; i<sz; i++)
+    {
+        vec[i] = std::max(std::abs(tmp1), std::abs(tmp2));
+    }
+    return vec;
 }
 
 // [[Rcpp::export]]
