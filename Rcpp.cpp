@@ -211,7 +211,7 @@ NumericVector get_k(NumericMatrix x)
     
     for(int i=1; i<sz; i++)
     {
-        vec[i] = std::max(std::abs(tmp1), std::abs(tmp2));
+        vec[i] = std::max(std::abs(tmp1[i]), std::abs(tmp2[i]));
     }
     return vec;
 }
