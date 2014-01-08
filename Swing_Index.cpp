@@ -169,3 +169,20 @@ NumericVector get_num(NumericMatrix x)
     return vec;
 }
 
+// [[Rcpp::export]]
+NumericVector swing_index(NumericMatrix x, double l)
+{
+    int sz = x.nrow();
+    NumericVector num = get_num(x);
+    NumericVector r = get_r(x);
+    NumericVector k = get_k(x)
+    NumericVector vec(sz);
+    
+    vec[0] = NA_REAL;
+    
+    for(int i=1; i<sz; i++)
+    {
+        vec[i] = 50*(num[i]/r[i])*(k[i]/l);
+    }
+    return vec;
+}
