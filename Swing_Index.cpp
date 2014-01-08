@@ -153,16 +153,27 @@ NumericVector get_r(NumericMatrix x)
 }
 
 // [[Rcpp::export]]
+NumericVector get_num(NumericMatrix x)
+{
+    int sz = x.nrow();
+    NumericVector vec(sz);
+    
+    vec[0] = NA_REAL;
+    
+    for(int i=1; i<sz; i++)
+    {
+        vec[i] = (x(i,cl)-x(i-1,cl)+.5*(x(i,cl)-x(i,op))+.25*(x(i-1,cl)-x(i-1,op)));;
+    }
+    return vec;
+}
+
+// [[Rcpp::export]]
 NumericVector swing_index(NumericMatrix x, double l)
 {
     int sz = x.nrow();
-    int op = 0;
-    int hi = 1;
-    int lo = 2;
-    int cl = 3;
     NumericVector vec(sz);
-    NumericVector r(sz);
-    NumericVector k(sz);
+    NumericVector r = get_r(x);
+    NumericVector k = get_k(x);
     NumericVector num(sz);
     
     vec[0] = NA_REAL;
