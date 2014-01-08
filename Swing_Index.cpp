@@ -1,3 +1,9 @@
+#include <Rcpp.h>
+#include <numeric>      // for accumulate
+
+using namespace Rcpp;
+using namespace std;
+
 // [[Rcpp::export]]
 NumericVector HtCy(NumericMatrix x)
 {
