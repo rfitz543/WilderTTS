@@ -136,17 +136,17 @@ NumericVector get_r(NumericMatrix x)
     
     for(int i=1; i<sz; i++)
     {
-        if(tmp1[i] >= tmp2[i] && tmp1[i] >= tmp3[i])
+        if(std::abs(tmp1[i]) >= std::abs(tmp2[i]) && std::abs(tmp1[i]) >= std::abs(tmp3[i]))
         {
-            vec[i] = 1;
+            vec[i] = std::abs(tmp1)-.5*std::abs(tmp2)+.25*std::abs(tmp4);
         }
-        else if(tmp2[i] > tmp1[i] && tmp2[i] > tmp3[i])
+        else if(std::abs(tmp2[i]) > std::abs(tmp1[i]) && std::abs(tmp2[i]) > std::abs(tmp3[i]))
         {
-            vec[i] = 2;
+            vec[i] = std::abs(tmp2)-.5*std::abs(tmp1)+.25*std::abs(tmp4);
         }
-        else if(tmp3[i] > tmp1[i] && tmp3[i] > tmp2[i])
+        else if(std::abs(tmp3[i]) > std::abs(tmp1[i]) && std::abs(tmp3[i]) > std::abs(tmp2[i]))
         {
-            vec[i] = 3;
+            vec[i] = std::abs(tmp3)+.25*std::abs(tmp4);
         }
     }
     return vec;
