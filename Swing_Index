@@ -117,6 +117,36 @@ NumericVector get_k(NumericMatrix x)
 }
 
 // [[Rcpp::export]]
+NumericVector get_r(NumericMatrix x)
+{
+    int sz = x.nrow();
+    NumericVector tmp1 = HtCy(x);
+    NumericVector tmp2 = LtCy(x);
+    NumericVector tmp3 = HtL2(x);
+    NumericVector tmp4 = CyOy(x);
+    NumericVector vec(sz);
+    
+    vec[0] = NA_REAL;
+    
+    for(int i=1; i<sz; i++)
+    {
+        if(tmp1[i] >= tmp2[i] && tmp1[i] >= tmp3[i])
+        {
+            vec[i] = 1;
+        }
+        else if(tmp2[i] > tmp1[i] && tmp2[i] > tmp3[i])
+        {
+            vec[i] = 2;
+        }
+        else if(tmp3[i] > tmp1[i] && tmp3[i] > tmp2[i])
+        {
+            vec[i] = 3;
+        }
+    }
+    return vec;
+}
+
+// [[Rcpp::export]]
 NumericVector swing_index(NumericMatrix x, double l)
 {
     int sz = x.nrow();
