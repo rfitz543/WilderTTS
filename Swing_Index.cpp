@@ -128,7 +128,7 @@ NumericVector get_r(NumericMatrix x)
     int sz = x.nrow();
     NumericVector tmp1 = HtCy(x);
     NumericVector tmp2 = LtCy(x);
-    NumericVector tmp3 = HtL2(x);
+    NumericVector tmp3 = HtLt(x);
     NumericVector tmp4 = CyOy(x);
     NumericVector vec(sz);
     
