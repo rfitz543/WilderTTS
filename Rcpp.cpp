@@ -258,6 +258,7 @@ NumericVector swing_index(NumericMatrix x, double l)
     return vec;
 }
 
+// [[Rcpp::export]]
 double get_max(NumericVector x)
 {
     return std::distance(x.begin(), std::max_element(x.begin(), x.end()));
