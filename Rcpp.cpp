@@ -258,9 +258,9 @@ NumericVector swing_index(NumericMatrix x, double l)
     return vec;
 }
 
-int get_max(NumericVector x)
+double get_max(NumericVector x)
 {
-    int index;
+    double index;
     index = std::max_element(x.begin(), x.end());
     
     return index;
