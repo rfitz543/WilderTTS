@@ -156,6 +156,8 @@ NumericVector get_r(NumericMatrix x)
 NumericVector get_num(NumericMatrix x)
 {
     int sz = x.nrow();
+    int op = 0;
+    int cl = 3;
     NumericVector vec(sz);
     
     vec[0] = NA_REAL;
