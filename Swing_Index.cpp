@@ -182,7 +182,7 @@ NumericVector swing_index(NumericMatrix x, double l)
     
     for(int i=1; i<sz; i++)
     {
-        vec[i] = 50*(num[i]/r[i])*(k[i]/l);
+        vec[i] = 50*((double)num[i]/(double)r[i])*((double)k[i]/l);
     }
     return vec;
 }
