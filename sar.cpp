@@ -8,7 +8,6 @@ using namespace std;
 NumericVector quick_sar_long(NumericMatrix x, double stop) 
 {
     int hi = 1;
-    int lo = 2;
     
     int sz = x.nrow();
     NumericVector ep(sz);
@@ -16,7 +15,7 @@ NumericVector quick_sar_long(NumericMatrix x, double stop)
     NumericVector sar(sz);
     
     ep[0] = x(0, hi);
-    sar[0] = stop;
+    sar[0] = &stop;
     af[0] = .02;
     for(int i=1; i<sz; i++)
     {
