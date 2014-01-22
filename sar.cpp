@@ -10,7 +10,7 @@ NumericVector quick_sar_long(NumericMatrix x, double stop)
     int hi = 1;
     int lo = 2;
     
-    int sz = x.size();
+    int sz = x.nrow();
     NumericVector ep(sz);
     NumericVector af(sz);
     NumericVector sar(sz);
