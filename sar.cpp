@@ -1,6 +1,6 @@
 #include <Rcpp.h>
 #include <numeric>      // for accumulate
-#include <cmath>
+#include <cmath>    // include for round
 
 using namespace Rcpp;
 using namespace std;
