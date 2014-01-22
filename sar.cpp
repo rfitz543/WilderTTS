@@ -6,7 +6,7 @@ using namespace Rcpp;
 using namespace std;
 
 // [[Rcpp::export]]
-NumericVector quick_sar_long(NumericMatrix x, double stop) 
+NumericVector sar_long(NumericMatrix x, double stop) 
 {
     int hi = 1;
     
@@ -37,7 +37,7 @@ NumericVector quick_sar_long(NumericMatrix x, double stop)
 }
 
 // [[Rcpp::export]]
-NumericVector quick_sar_short(NumericMatrix x, double stop) 
+NumericVector sar_short(NumericMatrix x, double stop) 
 {
     int lo = 2;
     
