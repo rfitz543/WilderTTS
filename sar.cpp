@@ -15,12 +15,12 @@ NumericVector quick_sar_long(NumericMatrix x, double stop)
     NumericVector sar(sz);
     
     ep[0] = x(0, hi);
-    sar[0] = &stop;
+    sar[0] = stop;
     af[0] = .02;
     for(int i=1; i<sz; i++)
     {
       sar[i] = sar[i-1] + af[i-1]*(x(i, hi)-sar[i-1]);
-      ep[i] = std::max(x.begin(), x.end()-sz+i);
+      ep[i] = std::max(ep[i-1], x(i, hi));
        
       if(ep[i]!=ep[i-1])
       {
