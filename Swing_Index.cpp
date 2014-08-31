@@ -140,11 +140,11 @@ NumericVector get_r(NumericMatrix x)
         {
             vec[i] = std::abs(tmp1[i])-.5*std::abs(tmp2[i])+.25*std::abs(tmp4[i]);
         }
-        else if(std::abs(tmp2[i]) >= std::abs(tmp1[i]) && std::abs(tmp2[i]) >= std::abs(tmp3[i]))
+        else if(std::abs(tmp2[i]) > std::abs(tmp1[i]) && std::abs(tmp2[i]) > std::abs(tmp3[i]))
         {
             vec[i] = std::abs(tmp2[i])-.5*std::abs(tmp1[i])+.25*std::abs(tmp4[i]);
         }
-        else if(std::abs(tmp3[i]) >= std::abs(tmp1[i]) && std::abs(tmp3[i]) >= std::abs(tmp2[i]))
+        else
         {
             vec[i] = std::abs(tmp3[i])+.25*std::abs(tmp4[i]);
         }
